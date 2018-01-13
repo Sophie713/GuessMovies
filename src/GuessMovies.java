@@ -19,14 +19,14 @@ public class GuessMovies {
         String [] moviesList = new String[amountOfLines];
         char[] movieChars;
 
-            int i = -1;
+            int i = 0;
             while (scanner.hasNextLine()) {
 
                 //scan next line
                 String line = scanner.nextLine();
 
                 //write down the name
-                moviesList[i+1] = line;
+                moviesList[i] = line;
                 //increment i
                 i++;
 
