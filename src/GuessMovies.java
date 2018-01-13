@@ -1,34 +1,42 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class GuessMovies {
 
     public static void main(String [] args) throws Exception {
-        String [] moviesList = new String[1000];
-        int moviesNumber = 0;
+        int amountOfLines = 0;
+        File file = new File("src/movies.txt");
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        Scanner scanner = new Scanner(file);
+        //count amount of lines to make the array only as big as needed
+        while (reader.readLine() !=null){
+            amountOfLines++;
+        }
+
+        String [] moviesList = new String[amountOfLines];
         char[] movieChars;
 
-
-        File file = new File("src/movies.txt");
-        Scanner scanner = new Scanner(file);
             int i = -1;
             while (scanner.hasNextLine()) {
 
                 //scan next line
                 String line = scanner.nextLine();
-                //count movies
-                moviesNumber += line.split("\n").length;
+
                 //write down the name
                 moviesList[i+1] = line;
                 //increment i
                 i++;
 
         }
+
         //choose a random movie
-        int randomMovie = (int) ((Math.random() * moviesNumber)+1);
-            String finalMovie = (moviesList[randomMovie]);
+        int randomMovie = (int) ((Math.random() * amountOfLines)+1);
+           String finalMovie = (moviesList[randomMovie]);
             //fill movieChars with the letters
+
         movieChars = finalMovie.toCharArray();
         //get number of letters of a chosen movie
         int numberOfLetters = movieChars.length;
