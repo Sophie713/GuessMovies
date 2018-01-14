@@ -34,18 +34,16 @@ public class GuessMovies {
         String finalMovie = (moviesList[randomMovie]);
         //fill movieChars with the letters
         movieChars = finalMovie.toCharArray();
-        //get number of letters of a chosen movie
-        int numberOfLetters = movieChars.length;
         //write the number of letters
-        System.out.println(numberOfLetters);
+        System.out.println(movieChars.length);
         //write _  for each letter
-        char [] secretWord = new char[numberOfLetters];
-        for (int ch = 0; ch < numberOfLetters; ch++){
+        char [] secretWord = new char[movieChars.length];
+        for (int ch = 0; ch < movieChars.length; ch++){
             secretWord[ch] = '_';
         }
         //print out the secret word
         System.out.println(Arrays.toString(secretWord));
-        int remainingLetters = numberOfLetters;
+        int remainingLetters = movieChars.length;
         while (remainingLetters > 0) {
             System.out.print(remainingLetters);
             //tell the user to guess
@@ -56,7 +54,7 @@ public class GuessMovies {
             char guess = input.charAt(0);
             //limit the number of guesses
             //check the title for the input
-            for (int s = 0; s < numberOfLetters; s++) {
+            for (int s = 0; s < movieChars.length; s++) {
                 if (guess == movieChars[s]) {
                     //replace _  with the char in a correct position
                     secretWord[s] = guess;
