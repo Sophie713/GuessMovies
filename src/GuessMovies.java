@@ -10,7 +10,6 @@ public class GuessMovies {
         int amountOfLines = 0;
         File file = new File("src/movies.txt");
         BufferedReader reader = new BufferedReader(new FileReader(file));
-        Scanner scanner = new Scanner(file);
         //count amount of lines to make the array only as big as needed
         while (reader.readLine() !=null){
             amountOfLines++;
