@@ -45,7 +45,6 @@ public class GuessMovies {
         System.out.println(Arrays.toString(secretWord));
         int remainingLetters = movieChars.length;
         while (remainingLetters > 0) {
-            System.out.print(remainingLetters);
             //tell the user to guess
             System.out.println("Guess a letter");
             //read the input
@@ -60,10 +59,9 @@ public class GuessMovies {
                     secretWord[s] = guess;
                     remainingLetters--;
                 }
-
             }
             System.out.println(Arrays.toString(secretWord));
         }
         System.out.println("Thats right! It is " + finalMovie + ".");
-        }
-        }
+    }
+}
