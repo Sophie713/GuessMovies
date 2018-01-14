@@ -19,17 +19,14 @@ public class GuessMovies {
         String [] moviesList = new String[amountOfLines];
         char[] movieChars;
 
-            int i = 0;
-            while (scanner.hasNextLine()) {
-
-                //scan next line
-                String line = scanner.nextLine();
-
+        int i = 0;
+        String line = "";
+        BufferedReader br = new BufferedReader(new FileReader(file));
+            while ((line = br.readLine())!=null) {
                 //write down the name
                 moviesList[i] = line;
                 //increment i
                 i++;
-
         }
 
         //choose a random movie
