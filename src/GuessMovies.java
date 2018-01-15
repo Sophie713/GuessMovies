@@ -15,6 +15,7 @@ public class GuessMovies {
         int i = 0;  // variable for while loop
         char[] movieChars; //array for chosen movie
         Scanner scannerS = new Scanner(System.in);  // scanner for reading the user letter guess
+        int guesses = 10;   // number of guesses
 
         //count amount of lines to make the array only as big as needed
         while (reader.readLine() !=null){
@@ -44,7 +45,7 @@ public class GuessMovies {
         //print out the secret word
         System.out.println(Arrays.toString(secretWord));
         int remainingLetters = movieChars.length;
-        while (remainingLetters > 0) {
+        while (remainingLetters  > 0 && guesses > 0 ) {
             //tell the user to guess
             System.out.println("Guess a letter");
             //read the input
@@ -52,6 +53,12 @@ public class GuessMovies {
             //make it a char if ti isn't
             char guess = input.charAt(0);
             //limit the number of guesses
+            guesses--;
+            if(guesses>1){
+                System.out.println( guesses+ " guesses remaining. ");
+            }else
+                System.out.println( guesses+ " guess remaining. ");
+
             //check the title for the input
             for (int s = 0; s < movieChars.length; s++) {
                 if (guess == movieChars[s]) {
@@ -59,9 +66,14 @@ public class GuessMovies {
                     secretWord[s] = guess;
                     remainingLetters--;
                 }
+
             }
             System.out.println(Arrays.toString(secretWord));
         }
-        System.out.println("Thats right! It is " + finalMovie + ".");
-    }
-}
+        if(remainingLetters==0){
+            System.out.println("Thats right! It is " + finalMovie + ".");
+        }else
+            System.out.println("You lost! The movie name is " + finalMovie + ".");
+
+        }
+        }
